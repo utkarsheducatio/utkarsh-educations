@@ -12,6 +12,18 @@ const s3Client = new S3Client({
 
 export async function GET() {
   try {
+    // Validate environment variables
+    const requiredEnvVars = ['AWS_REGION', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'S3_BUCKET_NAME'];
+    const missingEnvVars = requiredEnvVars.filter(varName => !process.env[varName]);
+    
+    if (missingEnvVars.length > 0) {
+      console.error('Missing environment variables:', missingEnvVars);
+      return NextResponse.json(
+        { error: `Missing environment variables: ${missingEnvVars.join(', ')}` },
+        { status: 500 }
+      );
+    }
+
     // Define the image keys directly
     const imageKeys = [
       'utkarsh_data/web-1-n.png',
@@ -41,7 +53,7 @@ export async function GET() {
   } catch (error) {
     console.error('Error generating signed URLs:', error);
     return NextResponse.json(
-      { error: 'Failed to generate signed URLs for S3 images' },
+      { error: `Failed to generate signed URLs for S3 images: ${error instanceof Error ? error.message : 'Unknown error'}` },
       { status: 500 }
     );
   }
