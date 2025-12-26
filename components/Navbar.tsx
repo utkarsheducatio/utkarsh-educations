@@ -45,6 +45,7 @@ interface NavbarProps {
 export default function Navbar({ onEnrollClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
+  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
@@ -64,46 +65,59 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
     };
   }, [coursesOpen]);
 
+  // Close mobile menu when window resizes to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+        setMobileCoursesOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
-      {/* Top Bar */}
+      {/* Top Bar - Responsive */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
-            <a href="tel:9370811902" className="hover:text-blue-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 text-xs sm:text-sm">
+          <div className="flex items-center space-x-3 sm:space-x-6 flex-wrap justify-center sm:justify-start">
+            <a href="tel:9370811902" className="hover:text-blue-100 transition whitespace-nowrap">
               📞 9370811902
             </a>
-            <span className="hidden md:block">Mon–Sat: 8:00 AM – 8:00 PM</span>
+            <span className="hidden md:block text-white/80">Mon–Sat: 8:00 AM – 8:00 PM</span>
           </div>
-          <div className="flex items-center space-x-4">
-            <a href="/login" className="hover:text-blue-100 transition">Student Login</a>
+          <div className="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm">
+            <a href="/login" className="hover:text-blue-100 transition whitespace-nowrap">Student Login</a>
             <span className="hidden sm:inline">|</span>
-            <a href="/admin" className="hover:text-blue-100 transition hidden sm:inline">Institute Login</a>
+            <a href="/admin" className="hover:text-blue-100 transition hidden sm:inline whitespace-nowrap">Institute Login</a>
           </div>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <a href="/" className="flex flex-col">
-            <span className="text-2xl font-bold text-primary-600">
-              Utkarsh <span className="text-orange-500">Education</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 md:h-20">
+          {/* Logo - Responsive */}
+          <a href="/" className="flex flex-col flex-shrink-0">
+            <span className="text-lg md:text-2xl font-bold text-blue-600 whitespace-nowrap">
+              Utkarsh <span className="text-orange-500">Edu</span>
             </span>
-            <span className="text-xs text-gray-500">Excellence in Education</span>
+            <span className="text-xs text-gray-500 hidden sm:block">Excellence in Education</span>
           </a>
 
-          {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center justify-center flex-1">
-            <div className="flex items-center space-x-6">
-              <a href="/" className="nav-link">Home</a>
+          {/* Desktop Menu - Hidden on mobile/tablet */}
+          <div className="hidden lg:flex items-center justify-center flex-1 ml-8">
+            <div className="flex items-center space-x-4 xl:space-x-6">
+              <a href="/" className="text-gray-700 hover:text-blue-600 font-medium text-sm lg:text-base whitespace-nowrap transition">Home</a>
 
-              {/* Courses Mega Menu */}
+              {/* Courses Mega Menu - Desktop Only */}
               <div className="relative" ref={dropdownRef}>
                 <button 
                   onClick={() => setCoursesOpen(!coursesOpen)}
-                  className="nav-link flex items-center gap-1"
+                  className="text-gray-700 hover:text-blue-600 font-medium text-sm lg:text-base flex items-center gap-1 transition"
                 >
                   Courses
                   <svg className={`w-4 h-4 transition-transform ${coursesOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24">
@@ -112,14 +126,14 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
                 </button>
 
                 {coursesOpen && (
-                  <div className="absolute left-0 top-full mt-3 w-[800px] bg-white rounded-xl shadow-xl p-6 border border-gray-100">
-                    <div className="grid grid-cols-3 gap-6">
+                  <div className="absolute left-0 top-full mt-3 w-screen md:w-[700px] lg:w-[800px] xl:w-[900px] bg-white rounded-xl shadow-2xl p-4 md:p-6 border border-gray-100">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                       {courses.map((course, i) => (
                         <div key={i}>
                           <div className="flex items-center gap-2 mb-3">
-                            <span className="text-2xl">{course.icon}</span>
-                            <div>
-                              <h3 className="font-semibold">{course.category}</h3>
+                            <span className="text-xl md:text-2xl">{course.icon}</span>
+                            <div className="min-w-0">
+                              <h3 className="font-semibold text-sm md:text-base">{course.category}</h3>
                               <p className="text-xs text-gray-500">{course.description}</p>
                             </div>
                           </div>
@@ -128,7 +142,8 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
                               <li key={j}>
                                 <a
                                   href={link.href}
-                                  className="text-sm text-gray-600 hover:text-primary-600"
+                                  onClick={() => setCoursesOpen(false)}
+                                  className="text-xs md:text-sm text-gray-600 hover:text-blue-600 hover:font-semibold transition"
                                 >
                                   {link.name}
                                 </a>
@@ -142,44 +157,93 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
                 )}
               </div>
 
-              <a href="/about" className="nav-link">About Us</a>
-              <a href="/results" className="nav-link">Results</a>
-              <a href="/contact" className="nav-link">Contact</a>
+              <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium text-sm lg:text-base whitespace-nowrap transition">About Us</a>
+              <a href="/results" className="text-gray-700 hover:text-blue-600 font-medium text-sm lg:text-base whitespace-nowrap transition">Results</a>
+              <a href="/contact" className="text-gray-700 hover:text-blue-600 font-medium text-sm lg:text-base whitespace-nowrap transition">Contact</a>
             </div>
           </div>
 
-          {/* Enroll Button - Extreme Right */}
-          <div className="hidden md:block">
-            <button
-              onClick={() => onEnrollClick?.()}
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-5 py-2 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all"
-            >
-              Enroll Now
-            </button>
-          </div>
-
-          {/* Mobile Toggle */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            ☰
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden pb-4 border-t">
-            <a className="mobile-link" href="/">Home</a>
-            <a className="mobile-link" href="/about">About Us</a>
-            <a className="mobile-link" href="/results">Results</a>
-            <a className="mobile-link" href="/contact">Contact</a>
+          {/* Enroll Button - Hidden on mobile, shown on tablet+ */}
+          <div className="hidden md:block flex-shrink-0">
             <button
               onClick={() => {
                 onEnrollClick?.();
                 setIsOpen(false);
               }}
-              className="block bg-orange-500 text-white text-center mx-4 mt-3 py-2 rounded-lg w-[calc(100%-2rem)]"
+              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 md:px-5 py-2 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all text-sm md:text-base whitespace-nowrap"
+            >
+              Enroll Now
+            </button>
+          </div>
+
+          {/* Mobile/Tablet Toggle - Hamburger */}
+          <button
+            className="lg:hidden flex-shrink-0 text-2xl"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
+        </div>
+
+        {/* Mobile/Tablet Menu - Responsive */}
+        {isOpen && (
+          <div className="lg:hidden pb-4 border-t space-y-2">
+            <a className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition" href="/">Home</a>
+            
+            {/* Mobile Courses Dropdown */}
+            <button
+              onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
+              className="w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition flex justify-between items-center"
+            >
+              Courses
+              <svg className={`w-4 h-4 transition-transform ${mobileCoursesOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" stroke="currentColor" fill="none" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {mobileCoursesOpen && (
+              <div className="bg-gray-50 rounded-lg p-3 space-y-3">
+                {courses.map((course, i) => (
+                  <div key={i} className="border-b pb-3 last:border-b-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-lg">{course.icon}</span>
+                      <div className="min-w-0">
+                        <h3 className="font-semibold text-sm">{course.category}</h3>
+                        <p className="text-xs text-gray-500">{course.description}</p>
+                      </div>
+                    </div>
+                    <ul className="space-y-1 pl-4">
+                      {course.links.map((link, j) => (
+                        <li key={j}>
+                          <a
+                            href={link.href}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setMobileCoursesOpen(false);
+                            }}
+                            className="text-sm text-gray-600 hover:text-blue-600 hover:font-semibold transition block"
+                          >
+                            → {link.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <a className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition" href="/about">About Us</a>
+            <a className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition" href="/results">Results</a>
+            <a className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded transition" href="/contact">Contact</a>
+            
+            <button
+              onClick={() => {
+                onEnrollClick?.();
+                setIsOpen(false);
+              }}
+              className="block w-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-center mx-auto mt-3 py-2 rounded-lg font-semibold hover:shadow-lg transition"
             >
               Enroll Now
             </button>
