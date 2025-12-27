@@ -1,31 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Contact from '@/components/Contact';
 import EnrollmentForm from '@/components/EnrollmentForm';
-
-interface CMSResult {
-  id: string;
-  name: string;
-  year: number;
-  exam: string;
-  rank: string;
-  marks: string;
-  percentile?: string;
-  college: string;
-  course: string;
-  testimonial?: string;
-  cardColor: string;
-  featured: boolean;
-  photo: {
-    url: string;
-    thumbnail?: string;
-    card?: string;
-  } | null;
-}
 
 interface StaticResult {
   id: number;
@@ -44,34 +24,10 @@ export default function ResultsPage() {
   const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
   const [selectedExam, setSelectedExam] = useState('all');
   const [selectedYear, setSelectedYear] = useState('all');
-  const [cmsResults, setCmsResults] = useState<CMSResult[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [useCMS, setUseCMS] = useState(false);
 
   const handleEnrollClick = () => {
     setIsEnrollmentOpen(true);
   };
-
-  // Fetch results from CMS
-  useEffect(() => {
-    const fetchResults = async () => {
-      try {
-        const response = await fetch('/api/results');
-        const data = await response.json();
-
-        if (response.ok && data.results && data.results.length > 0) {
-          setCmsResults(data.results);
-          setUseCMS(true);
-        }
-      } catch (error) {
-        console.error('Error fetching CMS results:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchResults();
-  }, []);
 
   // Static fallback data
   const staticResults: StaticResult[] = [
@@ -285,13 +241,6 @@ export default function ResultsPage() {
 
   // Filter results based on selection
   const getFilteredResults = () => {
-    if (useCMS && cmsResults.length > 0) {
-      return cmsResults.filter((result: CMSResult) => {
-        const examMatch = selectedExam === 'all' || result.exam === selectedExam;
-        const yearMatch = selectedYear === 'all' || result.year.toString() === selectedYear;
-        return examMatch && yearMatch;
-      });
-    }
     return staticResults.filter((result: StaticResult) => {
       const examMatch = selectedExam === 'all' || result.exam === selectedExam;
       const yearMatch = selectedYear === 'all' || result.year === selectedYear;
@@ -400,87 +349,7 @@ export default function ResultsPage() {
             </motion.div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {useCMS && cmsResults.length > 0 ? (
-                // CMS Results
-                (filteredResults as CMSResult[]).map((result, index) => (
-                  <motion.div
-                    key={result.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
-                  >
-                    {/* Image with Gradient Overlay or Photo */}
-                    <div className="relative h-64 overflow-hidden">
-                      {result.photo?.url ? (
-                        <>
-                          <Image
-                            src={result.photo.card || result.photo.url}
-                            alt={result.name}
-                            fill
-                            className="object-cover"
-                          />
-                          <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent`}></div>
-                          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                            <h3 className="text-xl font-bold mb-1">{result.name}</h3>
-                            <div className="bg-white/30 backdrop-blur-sm px-3 py-1 rounded-full inline-block text-sm">
-                              <span className="font-semibold">{result.exam} {result.year}</span>
-                            </div>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <div className={`absolute inset-0 bg-gradient-to-br ${result.cardColor || 'from-blue-500 to-cyan-500'} opacity-90 group-hover:opacity-80 transition-opacity`}></div>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="text-white text-center p-6">
-                              <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white/50">
-                                <span className="text-4xl">🎓</span>
-                              </div>
-                              <h3 className="text-2xl font-bold mb-2">{result.name}</h3>
-                              <div className="bg-white/30 backdrop-blur-sm px-4 py-1 rounded-full inline-block">
-                                <span className="font-semibold">{result.exam} {result.year}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </>
-                      )}
-                    </div>
-
-                    {/* Details */}
-                    <div className="p-6">
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Rank</span>
-                          <span className="font-bold text-lg text-gray-900">{result.rank}</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Marks</span>
-                          <span className="font-bold text-lg text-green-600">{result.marks}</span>
-                        </div>
-                        {result.percentile && (
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm text-gray-600">Percentile</span>
-                            <span className="font-bold text-blue-600">{result.percentile}</span>
-                          </div>
-                        )}
-                        <div className="border-t pt-3">
-                          <p className="text-sm text-gray-600 mb-1">College</p>
-                          <p className="font-semibold text-gray-900">{result.college}</p>
-                          <p className="text-sm text-blue-600">{result.course}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Badge */}
-                    <div className={`bg-gradient-to-r ${result.cardColor || 'from-blue-500 to-cyan-500'} px-4 py-3 text-center`}>
-                      <span className="text-white font-bold text-sm">{result.featured ? '⭐ Featured Ranker' : '✨ Top Ranker'}</span>
-                    </div>
-                  </motion.div>
-                ))
-              ) : (
-                // Static Fallback Results
-                (filteredResults as StaticResult[]).map((result, index) => (
+              {filteredResults.map((result, index) => (
                   <motion.div
                     key={result.id}
                     initial={{ opacity: 0, y: 20 }}
@@ -521,8 +390,7 @@ export default function ResultsPage() {
                       <p className="text-gray-500 text-sm mt-1">{result.college}</p>
                     </div>
                   </motion.div>
-                ))
-              )}
+                ))}
             </div>
           )}
         </div>
