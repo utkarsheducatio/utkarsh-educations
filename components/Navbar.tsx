@@ -93,7 +93,7 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
           <div className="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm">
             <a href="/login" className="hover:text-blue-100 transition whitespace-nowrap">Student Login</a>
             <span className="hidden sm:inline">|</span>
-            <a href="/admin" className="hover:text-blue-100 transition hidden sm:inline whitespace-nowrap">Institute Login</a>
+            <a href="https://utkarsheducation.enromatics.com/tenant/login" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 transition hidden sm:inline whitespace-nowrap">Institute Login</a>
           </div>
         </div>
       </div>
