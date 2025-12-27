@@ -304,82 +304,14 @@ export default function ResultsPage() {
   const years = ['2025', '2024'];
   const exams = ['JEE'];
 
-  const stats = [
-    { icon: '🎯', number: '500+', label: 'Top Rankers', color: 'from-blue-500 to-cyan-500' },
-    { icon: '🏆', number: '95%', label: 'Success Rate', color: 'from-purple-500 to-pink-500' },
-    { icon: '⭐', number: '100+', label: 'AIR Under 1000', color: 'from-orange-500 to-red-500' },
-    { icon: '🎓', number: '50+', label: 'IIT/AIIMS Selections', color: 'from-green-500 to-emerald-500' },
-  ];
-
   return (
-    <>
+    <div className="min-h-screen bg-white">
       <Navbar onEnrollClick={handleEnrollClick} />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white py-20 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [0, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-20 right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"
-        />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Our Success Stories
-            </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-              Celebrating the achievements of our brilliant students who cracked NEET, JEE & MHT-CET
-              with flying colors. Their success is our pride!
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="text-center"
-              >
-                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.color} rounded-2xl text-3xl mb-3 shadow-lg`}>
-                  {stat.icon}
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">{stat.number}</div>
-                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Filters Section */}
-      <section className="py-8 bg-gray-50 sticky top-20 z-40 border-b border-gray-200 shadow-md">
+      <section className="pt-24 pb-3 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-            <div className="flex items-center gap-3">
-              <span className="text-gray-700 font-semibold">Filter by:</span>
-            </div>
+          <div className="flex flex-wrap gap-2 items-center justify-center">
 
             {/* Exam Filter */}
             <div className="flex gap-2">
@@ -454,7 +386,7 @@ export default function ResultsPage() {
       </section>
 
       {/* Results Grid */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredResults.length === 0 ? (
             <motion.div
@@ -638,6 +570,6 @@ export default function ResultsPage() {
         isOpen={isEnrollmentOpen} 
         onClose={() => setIsEnrollmentOpen(false)}
       />
-    </>
+    </div>
   );
 }
