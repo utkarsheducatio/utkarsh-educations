@@ -82,18 +82,15 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       {/* Top Bar - Responsive */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 text-xs sm:text-sm">
-          <div className="flex items-center space-x-3 sm:space-x-6 flex-wrap justify-center sm:justify-start">
-            <a href="tel:9370811902" className="hover:text-blue-100 transition whitespace-nowrap">
-              📞 9370811902
-            </a>
-            <span className="hidden md:block text-white/80">Mon–Sat: 8:00 AM – 8:00 PM</span>
-          </div>
-          <div className="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-1.5 sm:py-2">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex justify-between items-center text-[10px] sm:text-sm">
+          <a href="tel:9370811902" className="hover:text-blue-100 transition whitespace-nowrap">
+            📞 9370811902
+          </a>
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <a href="/login" className="hover:text-blue-100 transition whitespace-nowrap">Student Login</a>
-            <span className="hidden sm:inline">|</span>
-            <a href="https://utkarsheducation.enromatics.com/tenant/login" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 transition hidden sm:inline whitespace-nowrap">Institute Login</a>
+            <span>|</span>
+            <a href="https://utkarsheducationakola.enromatics.com/tenant/login" target="_blank" rel="noopener noreferrer" className="hover:text-blue-100 transition whitespace-nowrap">Institute Login</a>
           </div>
         </div>
       </div>
