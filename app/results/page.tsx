@@ -75,149 +75,211 @@ export default function ResultsPage() {
 
   // Static fallback data
   const staticResults: StaticResult[] = [
+    // ========== JEE 2025 Toppers ==========
     {
       id: 1,
-      name: 'Priya Sharma',
-      exam: 'NEET',
-      year: '2024',
-      rank: 'AIR 142',
-      score: '715/720',
-      college: 'AIIMS Delhi',
-      stream: 'MBBS',
-      image: '/media/student-1.jpg',
-      gradientColor: 'from-emerald-400 to-teal-600'
+      name: 'Komal Bhopal',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '96.95%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Komal%20Bhopal.jpg',
+      gradientColor: 'from-blue-400 to-indigo-600'
     },
     {
       id: 2,
-      name: 'Rahul Deshmukh',
+      name: 'Sudarshan Jadhao',
       exam: 'JEE',
-      year: '2024',
-      rank: 'AIR 287',
-      score: '298/300',
-      college: 'IIT Bombay',
-      stream: 'Computer Science',
-      image: '/media/student-2.jpg',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '96.58%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Sudarshan%20Jadhao.jpg',
       gradientColor: 'from-blue-400 to-indigo-600'
     },
     {
       id: 3,
-      name: 'Sneha Patil',
-      exam: 'NEET',
-      year: '2024',
-      rank: 'AIR 356',
-      score: '702/720',
-      college: 'MAMC Delhi',
-      stream: 'MBBS',
-      image: '/media/student-3.jpg',
+      name: 'Sayali Gadge',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '96.33%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Sayali%20Gadge.jpg',
       gradientColor: 'from-purple-400 to-pink-600'
     },
     {
       id: 4,
-      name: 'Aditya Kulkarni',
-      exam: 'MHT-CET',
-      year: '2024',
-      rank: 'State Rank 45',
-      score: '99.87%ile',
-      college: 'VJTI Mumbai',
-      stream: 'Mechanical Engineering',
-      image: '/media/student-4.jpg',
-      gradientColor: 'from-orange-400 to-red-600'
-    },
-    {
-      id: 5,
-      name: 'Ananya Singh',
-      exam: 'NEET',
-      year: '2023',
-      rank: 'AIR 458',
-      score: '698/720',
-      college: 'GMC Nagpur',
-      stream: 'MBBS',
-      image: '/media/student-5.jpg',
+      name: 'Gajanan Jadhao',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '95.40%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Gajanan%20Jadhao.jpg',
       gradientColor: 'from-cyan-400 to-blue-600'
     },
     {
-      id: 6,
-      name: 'Arjun Thakur',
+      id: 5,
+      name: 'Vaishnavi Dhamankar',
       exam: 'JEE',
-      year: '2023',
-      rank: 'AIR 512',
-      score: '289/300',
-      college: 'IIT Delhi',
-      stream: 'Electrical Engineering',
-      image: '/media/student-6.jpg',
-      gradientColor: 'from-yellow-400 to-orange-600'
-    },
-    {
-      id: 7,
-      name: 'Ishita Joshi',
-      exam: 'NEET',
-      year: '2023',
-      rank: 'AIR 623',
-      score: '689/720',
-      college: 'BJ Medical Pune',
-      stream: 'MBBS',
-      image: '/media/student-7.jpg',
-      gradientColor: 'from-rose-400 to-red-600'
-    },
-    {
-      id: 8,
-      name: 'Karan Mehta',
-      exam: 'MHT-CET',
-      year: '2023',
-      rank: 'State Rank 78',
-      score: '99.72%ile',
-      college: 'COEP Pune',
-      stream: 'Computer Engineering',
-      image: '/media/student-8.jpg',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '95.57%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Vaishnavi%20Dhamankar.jpg',
       gradientColor: 'from-green-400 to-emerald-600'
     },
     {
-      id: 9,
-      name: 'Divya Rao',
-      exam: 'NEET',
-      year: '2022',
-      rank: 'AIR 734',
-      score: '681/720',
-      college: 'Seth GS Medical',
-      stream: 'MBBS',
-      image: '/media/student-9.jpg',
+      id: 6,
+      name: 'Karthik Borkar',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '95.05%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Kartik%20Borkar.jpg',
+      gradientColor: 'from-orange-400 to-red-600'
+    },
+    {
+      id: 7,
+      name: 'Shreya Bhagalkar',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '91.35%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Shreya%20Bhagalkar.jpg',
+      gradientColor: 'from-pink-400 to-rose-600'
+    },
+    {
+      id: 8,
+      name: 'Devshri Pathak',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '91.07%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Devshri%20Pathak.jpg',
       gradientColor: 'from-violet-400 to-purple-600'
     },
     {
-      id: 10,
-      name: 'Rohan Pawar',
+      id: 9,
+      name: 'Om Dhore',
       exam: 'JEE',
-      year: '2022',
-      rank: 'AIR 892',
-      score: '278/300',
-      college: 'NIT Trichy',
-      stream: 'Civil Engineering',
-      image: '/media/student-10.jpg',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '91.04%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Om%20Dhore.jpg',
+      gradientColor: 'from-teal-400 to-cyan-600'
+    },
+    {
+      id: 10,
+      name: 'Pranav Bali',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '90.35%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Pranav%20Bali.jpg',
       gradientColor: 'from-indigo-400 to-blue-600'
     },
     {
       id: 11,
-      name: 'Pooja Kamble',
-      exam: 'NEET',
-      year: '2022',
-      rank: 'AIR 945',
-      score: '676/720',
-      college: 'GMC Mumbai',
-      stream: 'MBBS',
-      image: '/media/student-11.jpg',
-      gradientColor: 'from-pink-400 to-rose-600'
+      name: 'Roshan Dandale',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '90.00%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Roshan%20Dandale.jpg',
+      gradientColor: 'from-yellow-400 to-orange-600'
     },
     {
       id: 12,
-      name: 'Siddharth Bhat',
-      exam: 'MHT-CET',
-      year: '2022',
-      rank: 'State Rank 112',
-      score: '99.54%ile',
-      college: 'PICT Pune',
-      stream: 'Information Technology',
-      image: '/media/student-12.jpg',
-      gradientColor: 'from-teal-400 to-cyan-600'
+      name: 'Piyush Agrawal',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '87.70%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Piyush%20Agrawal.jpg',
+      gradientColor: 'from-rose-400 to-red-600'
+    },
+    {
+      id: 13,
+      name: 'Shrinath Ghuge',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '86.54%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Shrinath%20Ghuge.jpg',
+      gradientColor: 'from-emerald-400 to-teal-600'
+    },
+    {
+      id: 14,
+      name: 'Nayan Kukde',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '85.00%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Nayan%20Kukde.jpg',
+      gradientColor: 'from-blue-400 to-purple-600'
+    },
+    {
+      id: 15,
+      name: 'Arjun Korpe',
+      exam: 'JEE',
+      year: '2025',
+      rank: 'Top Ranker',
+      score: '84.49%ile',
+      college: 'Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Arjun%20Korpe.jpg',
+      gradientColor: 'from-cyan-400 to-indigo-600'
+    },
+    // ========== JEE 2024 Toppers ==========
+    {
+      id: 16,
+      name: 'Suyash Joshi',
+      exam: 'JEE',
+      year: '2024',
+      rank: 'Top Ranker',
+      score: '99.57%ile',
+      college: 'Top Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Suyash%20Joshi.jpg',
+      gradientColor: 'from-yellow-400 to-orange-600'
+    },
+    {
+      id: 17,
+      name: 'Vedangi Pande',
+      exam: 'JEE',
+      year: '2024',
+      rank: 'Top Ranker',
+      score: '96.57%ile',
+      college: 'Top Engineering College',
+      stream: 'Engineering',
+      image: 'https://ik.imagekit.io/qujrbo6v2/Vedangi%20Pande.jpg',
+      gradientColor: 'from-pink-400 to-purple-600'
     },
   ];
 
@@ -239,8 +301,8 @@ export default function ResultsPage() {
 
   const filteredResults = getFilteredResults();
 
-  const years = ['2024', '2023', '2022'];
-  const exams = ['NEET', 'JEE', 'MHT-CET'];
+  const years = ['2025', '2024'];
+  const exams = ['JEE'];
 
   const stats = [
     { icon: '🎯', number: '500+', label: 'Top Rankers', color: 'from-blue-500 to-cyan-500' },
@@ -492,47 +554,39 @@ export default function ResultsPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+                    whileHover={{ y: -5, scale: 1.02 }}
+                    className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
                   >
-                    {/* Image with Gradient Overlay */}
-                    <div className="relative h-64 overflow-hidden">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${result.gradientColor} opacity-90 group-hover:opacity-80 transition-opacity`}></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-white text-center p-6">
-                          <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white/50">
-                            <span className="text-4xl">🎓</span>
-                          </div>
-                          <h3 className="text-2xl font-bold mb-2">{result.name}</h3>
-                          <div className="bg-white/30 backdrop-blur-sm px-4 py-1 rounded-full inline-block">
-                            <span className="font-semibold">{result.exam} {result.year}</span>
-                          </div>
+                    {/* Student Photo */}
+                    <div className="relative h-72 bg-gray-50">
+                      {result.image && result.image.startsWith('http') ? (
+                        <Image
+                          src={result.image}
+                          alt={result.name}
+                          fill
+                          className="object-cover scale-110"
+                          unoptimized
+                        />
+                      ) : (
+                        <div className={`absolute inset-0 bg-gradient-to-br ${result.gradientColor} flex items-center justify-center`}>
+                          <span className="text-6xl">🎓</span>
                         </div>
-                      </div>
+                      )}
                     </div>
 
-                    {/* Details */}
-                    <div className="p-6">
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Rank</span>
-                          <span className="font-bold text-lg text-gray-900">{result.rank}</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Score</span>
-                          <span className="font-bold text-lg text-green-600">{result.score}</span>
-                        </div>
-                        <div className="border-t pt-3">
-                          <p className="text-sm text-gray-600 mb-1">College</p>
-                          <p className="font-semibold text-gray-900">{result.college}</p>
-                          <p className="text-sm text-blue-600">{result.stream}</p>
-                        </div>
+                    {/* Student Info */}
+                    <div className="p-4 text-center border-t">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">{result.name}</h3>
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                          {result.exam}
+                        </span>
+                        <span className="bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full">
+                          {result.year}
+                        </span>
                       </div>
-                    </div>
-
-                    {/* Badge */}
-                    <div className={`bg-gradient-to-r ${result.gradientColor} px-4 py-3 text-center`}>
-                      <span className="text-white font-bold text-sm">✨ Top Ranker</span>
+                      <p className="text-green-600 font-bold text-lg">{result.score}</p>
+                      <p className="text-gray-500 text-sm mt-1">{result.college}</p>
                     </div>
                   </motion.div>
                 ))

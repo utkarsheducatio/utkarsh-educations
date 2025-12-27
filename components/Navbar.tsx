@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const courses = [
   {
@@ -101,11 +102,15 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo - Responsive */}
-          <a href="/" className="flex flex-col flex-shrink-0">
-            <span className="text-lg md:text-2xl font-bold text-blue-600 whitespace-nowrap">
-              Utkarsh <span className="text-orange-500">Edu</span>
-            </span>
-            <span className="text-xs text-gray-500 hidden sm:block">Excellence in Education</span>
+          <a href="/" className="flex items-center flex-shrink-0">
+            <Image
+              src="https://ik.imagekit.io/qujrbo6v2/cropped-Logo-1.png"
+              alt="Utkarsh Education Logo"
+              width={180}
+              height={50}
+              className="h-12 md:h-14 w-auto"
+              unoptimized
+            />
           </a>
 
           {/* Desktop Menu - Hidden on mobile/tablet */}
