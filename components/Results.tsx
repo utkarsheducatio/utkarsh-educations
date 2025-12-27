@@ -18,70 +18,59 @@ export default function Results() {
   const toppers = [
     {
       id: 1,
-      name: "Priya Sharma",
-      exam: "NEET 2024",
-      rank: "AIR 245",
-      score: "715/720",
-      college: "AIIMS Delhi",
-      stream: "MBBS",
-      image: "/media/student1.jpg", // Will be replaced
-      gradient: "from-pink-500 to-rose-500"
+      name: "Komal Bhopal",
+      exam: "JEE 2025",
+      rank: "Top Ranker",
+      score: "96.95%ile",
+      college: "Engineering College",
+      stream: "Engineering",
+      image: "https://ik.imagekit.io/qujrbo6v2/Komal%20Bhopal.jpg",
+      gradient: "from-blue-500 to-indigo-500"
     },
     {
       id: 2,
-      name: "Rahul Deshmukh",
-      exam: "JEE Advanced 2024",
-      rank: "AIR 1250",
-      score: "325/360",
-      college: "IIT Bombay",
-      stream: "Computer Science",
-      image: "/media/student2.jpg",
+      name: "Sudarshan Jadhao",
+      exam: "JEE 2025",
+      rank: "Top Ranker",
+      score: "96.58%ile",
+      college: "Engineering College",
+      stream: "Engineering",
+      image: "https://ik.imagekit.io/qujrbo6v2/Sudarshan%20Jadhao.jpg",
       gradient: "from-blue-500 to-cyan-500"
     },
     {
       id: 3,
-      name: "Sneha Patil",
-      exam: "MHT-CET 2024",
-      rank: "State Rank 45",
-      score: "99.8 Percentile",
-      college: "COEP Pune",
+      name: "Sayali Gadge",
+      exam: "JEE 2025",
+      rank: "Top Ranker",
+      score: "96.33%ile",
+      college: "Engineering College",
       stream: "Engineering",
-      image: "/media/student3.jpg",
-      gradient: "from-purple-500 to-indigo-500"
+      image: "https://ik.imagekit.io/qujrbo6v2/Sayali%20Gadge.jpg",
+      gradient: "from-purple-500 to-pink-500"
     },
     {
       id: 4,
-      name: "Aditya Joshi",
-      exam: "NEET 2024",
-      rank: "AIR 3890",
-      score: "680/720",
-      college: "GMCH Nagpur",
-      stream: "MBBS",
-      image: "/media/student4.jpg",
-      gradient: "from-green-500 to-emerald-500"
-    },
-    {
-      id: 5,
-      name: "Megha Kulkarni",
-      exam: "NEET 2024",
-      rank: "AIR 2156",
-      score: "695/720",
-      college: "GMC Mumbai",
-      stream: "MBBS",
-      image: "/media/student5.jpg",
+      name: "Suyash Joshi",
+      exam: "JEE 2024",
+      rank: "Top Ranker",
+      score: "99.57%ile",
+      college: "Top Engineering College",
+      stream: "Engineering",
+      image: "https://ik.imagekit.io/qujrbo6v2/Suyash%20Joshi.jpg",
       gradient: "from-yellow-500 to-orange-500"
     },
     {
-      id: 6,
-      name: "Rohan Patil",
-      exam: "JEE Main 2024",
-      rank: "AIR 4520",
-      score: "98.5 Percentile",
-      college: "NIT Nagpur",
-      stream: "Mechanical Eng.",
-      image: "/media/student6.jpg",
-      gradient: "from-red-500 to-pink-500"
-    }
+      id: 5,
+      name: "Gajanan Jadhao",
+      exam: "JEE 2025",
+      rank: "Top Ranker",
+      score: "95.40%ile",
+      college: "Engineering College",
+      stream: "Engineering",
+      image: "https://ik.imagekit.io/qujrbo6v2/Gajanan%20Jadhao.jpg",
+      gradient: "from-green-500 to-emerald-500"
+    },
   ];
 
   return (
@@ -152,10 +141,14 @@ export default function Results() {
                     <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-gray-100 group-hover:border-transparent transition-all duration-300">
                       {/* Image Section */}
                       <div className={`relative h-80 bg-gradient-to-br ${topper.gradient} flex items-center justify-center overflow-hidden`}>
-                        {/* Placeholder for student image */}
-                        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                          <span className="text-6xl">👨‍🎓</span>
-                        </div>
+                        {/* Student Photo */}
+                        <Image
+                          src={topper.image}
+                          alt={topper.name}
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
                         
                         {/* Rank Badge */}
                         <motion.div

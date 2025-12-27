@@ -25,7 +25,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar onEnrollClick={handleEnrollClick} />
       <HeroSlider onEnrollClick={handleEnrollClick} />
-      <QuickAdmission />
+      <QuickAdmission onEnrollClick={handleEnrollClick} />
       <Features />
       <Courses onEnrollClick={handleEnrollClick} />
       <WhyUs />

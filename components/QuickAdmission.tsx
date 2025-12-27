@@ -1,4 +1,10 @@
-export default function QuickAdmission() {
+'use client';
+
+interface QuickAdmissionProps {
+  onEnrollClick?: (courseName?: string) => void;
+}
+
+export default function QuickAdmission({ onEnrollClick }: QuickAdmissionProps) {
   const courses = [
     {
       id: 1,
@@ -49,7 +55,10 @@ export default function QuickAdmission() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{course.title}</h3>
                 <p className="text-sm text-gray-500 mb-3 font-medium">{course.badge}</p>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">{course.description}</p>
-                <button className="w-full bg-accent-500 hover:bg-accent-600 text-white font-semibold py-2.5 rounded-lg transition-colors mt-auto">
+                <button 
+                  onClick={() => onEnrollClick?.(course.title)}
+                  className="w-full bg-accent-500 hover:bg-accent-600 text-white font-semibold py-2.5 rounded-lg transition-colors mt-auto"
+                >
                   Enroll Now
                 </button>
               </div>
