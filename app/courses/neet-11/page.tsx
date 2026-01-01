@@ -43,8 +43,8 @@ export default function NEETClass11Page() {
   ];
 
   const batchDetails = [
-    { label: 'Batch Start Date', value: 'January 2026', icon: '📅' },
-    { label: 'Duration', value: '1 Year Program', icon: '⏱️' },
+    { label: 'Batch Start Date', value: 'June 2026', icon: '📅' },
+    { label: 'Duration', value: '2 Year Program', icon: '⏱️' },
     { label: 'Class Schedule', value: 'Mon-Sat, 6 Days/Week', icon: '🗓️' },
     { label: 'Batch Size', value: 'Limited to 30 Students', icon: '👥' },
   ];
@@ -79,11 +79,11 @@ export default function NEETClass11Page() {
                 🔥 Admissions Open for 2026
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                NEET Class 11th
-                <span className="block text-yellow-300 mt-2">Foundation Program</span>
+                NEET Class 11 + 12
+                <span className="block text-yellow-300 mt-2">Complete Preparation</span>
               </h1>
               <p className="text-xl text-blue-100 mb-8">
-                Start your medical journey with the right foundation. Comprehensive NEET preparation from Class 11th with expert guidance.
+                Start your medical journey with comprehensive NEET preparation from Class 11 through Class 12 with expert guidance.
               </p>
               <div className="flex flex-wrap gap-4">
                 <button
@@ -141,7 +141,7 @@ export default function NEETClass11Page() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Our NEET Class 11th Program?
+              Why Choose Our NEET Class 11 + 12 Program?
             </h2>
             <p className="text-xl text-gray-600">
               Everything you need to build a strong foundation for NEET
@@ -335,7 +335,7 @@ export default function NEETClass11Page() {
       <EnrollmentForm 
         isOpen={isEnrollmentOpen} 
         onClose={() => setIsEnrollmentOpen(false)}
-        courseName="NEET Class 11th"
+        courseName="NEET Class 11 + 12"
       />
     </>
   );

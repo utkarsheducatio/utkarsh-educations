@@ -44,15 +44,15 @@ export default function QuickAdmission({ onEnrollClick }: QuickAdmissionProps) {
           <p className="text-gray-600 text-lg">Choose your path to success</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
           {courses.map((course) => (
             <div
               key={course.id}
               className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100 flex flex-col h-full"
             >
               <div className="p-6 flex flex-col flex-grow">
-                <div className="text-5xl mb-4">{course.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{course.title}</h3>
+                <div className="text-3xl mb-4">{course.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
                 <p className="text-sm text-gray-500 mb-3 font-medium">{course.badge}</p>
                 <p className="text-gray-600 text-sm mb-4 flex-grow">{course.description}</p>
                 <button 

@@ -44,30 +44,10 @@ export default function MHTCETClass11Page() {
   ];
 
   const batchDetails = [
-    {
-      batch: 'Morning Batch',
-      time: '7:00 AM - 10:00 AM',
-      duration: '3 hours',
-      icon: '🌅'
-    },
-    {
-      batch: 'Regular Batch',
-      time: '10:00 AM - 1:00 PM',
-      duration: '3 hours',
-      icon: '📚'
-    },
-    {
-      batch: 'Afternoon Batch',
-      time: '2:00 PM - 5:00 PM',
-      duration: '3 hours',
-      icon: '☀️'
-    },
-    {
-      batch: 'Evening Batch',
-      time: '5:00 PM - 8:00 PM',
-      duration: '3 hours',
-      icon: '🌙'
-    },
+    { label: 'Batch Start Date', value: 'June 2026', icon: '📅' },
+    { label: 'Duration', value: '2 Year Program', icon: '⏱️' },
+    { label: 'Class Schedule', value: 'Mon-Sat, 6 Days/Week', icon: '🗓️' },
+    { label: 'Batch Size', value: 'Limited to 30 Students', icon: '👥' },
   ];
 
   return (
@@ -98,13 +78,13 @@ export default function MHTCETClass11Page() {
           >
             <div>
               <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                <span className="text-white font-semibold">MHT-CET Class 11th</span>
+                <span className="text-white font-semibold">MHT-CET Class 11 + 12</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Target MHT-CET
+              <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                MHT-CET Class 11 + 12 Preparation
               </h1>
               <p className="text-xl text-white/90 mb-8">
-                Master the Maharashtra Higher Secondary Board curriculum while preparing for MHT-CET. Perfect balance between board exams and competitive preparation.
+                Master the Maharashtra Higher Secondary Board curriculum from Class 11 through Class 12 while preparing for MHT-CET. Perfect balance between board exams and competitive preparation.
               </p>
 
               <div className="space-y-3 mb-8">
@@ -149,7 +129,7 @@ export default function MHTCETClass11Page() {
                   <h3 className="text-2xl font-bold">Course Highlights</h3>
                   <div className="bg-white/20 rounded-lg p-4">
                     <p className="font-semibold mb-2">📅 Duration</p>
-                    <p className="text-white/90">1 Year (Class 11th)</p>
+                    <p className="text-white/90">2 Years (Class 11 + 12)</p>
                   </div>
                   <div className="bg-white/20 rounded-lg p-4">
                     <p className="font-semibold mb-2">🎯 Focus</p>
@@ -179,7 +159,7 @@ export default function MHTCETClass11Page() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Class 11th Special Features</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Class 11 + 12 Special Features</h2>
             <p className="text-gray-600 text-lg">Perfect balance of board and competitive exam preparation</p>
           </motion.div>
 
@@ -271,9 +251,8 @@ export default function MHTCETClass11Page() {
                 className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all text-center"
               >
                 <div className="text-4xl mb-4">{batch.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{batch.batch}</h3>
-                <p className="text-green-600 font-semibold mb-1">{batch.time}</p>
-                <p className="text-gray-600 text-sm">{batch.duration} daily</p>
+                <p className="text-sm text-gray-600 mb-1">{batch.label}</p>
+                <p className="text-xl font-bold text-gray-900">{batch.value}</p>
               </motion.div>
             ))}
           </div>
@@ -320,7 +299,7 @@ export default function MHTCETClass11Page() {
       <EnrollmentForm 
         isOpen={isEnrollmentOpen} 
         onClose={() => setIsEnrollmentOpen(false)}
-        courseName="MHT-CET Class 11th"
+        courseName="MHT-CET Class 11 + 12"
       />
     </>
   );
