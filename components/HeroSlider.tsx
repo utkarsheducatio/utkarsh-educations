@@ -10,12 +10,12 @@ interface HeroSliderProps {
 const banners = [
   {
     key: 'banner-1',
-    url: 'https://ik.imagekit.io/qujrbo6v2/01.jpg',
+    url: 'https://ik.imagekit.io/qujrbo6v2/profile-page-2.jpg',
     alt: 'Utkarsh Education Banner 1'
   },
   {
     key: 'banner-2',
-    url: 'https://ik.imagekit.io/qujrbo6v2/02..jpg',
+    url: 'https://ik.imagekit.io/qujrbo6v2/profile%20page%201%20(1).jpg',
     alt: 'Utkarsh Education Banner 2'
   },
 ];
