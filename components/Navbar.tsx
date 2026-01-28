@@ -93,7 +93,7 @@ export default function Navbar({ onEnrollClick }: NavbarProps) {
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-0">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo - Responsive */}
           <a href="/" className="flex items-center flex-shrink-0">

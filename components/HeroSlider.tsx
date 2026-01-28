@@ -9,6 +9,11 @@ interface HeroSliderProps {
 
 const banners = [
   {
+    key: 'banner-0',
+    url: 'https://ik.imagekit.io/qujrbo6v2/Untitled-1.gif',
+    alt: 'Utkarsh Education Banner'
+  },
+  {
     key: 'banner-1',
     url: 'https://ik.imagekit.io/qujrbo6v2/profile-page-2.jpg',
     alt: 'Utkarsh Education Banner 1'
