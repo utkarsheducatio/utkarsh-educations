@@ -23,6 +23,11 @@ const banners = [
     url: 'https://ik.imagekit.io/qujrbo6v2/profile%20page%201%20(1).jpg',
     alt: 'Utkarsh Education Banner 2'
   },
+  {
+    key: 'banner-3',
+    url: 'https://ik.imagekit.io/qujrbo6v2/2.gif',
+    alt: 'Utkarsh Education Banner 3'
+  },
 ];
 
 export default function HeroSlider({ onEnrollClick }: HeroSliderProps) {
