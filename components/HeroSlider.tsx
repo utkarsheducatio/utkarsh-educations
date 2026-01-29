@@ -10,22 +10,22 @@ interface HeroSliderProps {
 const banners = [
   {
     key: 'banner-0',
-    url: 'https://ik.imagekit.io/qujrbo6v2/Untitled-1.gif',
+    url: 'https://ik.imagekit.io/qujrbo6v2/profile-page-2.jpg?updatedAt=1767678723261',
     alt: 'Utkarsh Education Banner'
   },
   {
     key: 'banner-1',
-    url: 'https://ik.imagekit.io/qujrbo6v2/profile-page-2.jpg',
+    url: 'https://ik.imagekit.io/qujrbo6v2/Untitled-1.gif?updatedAt=1769612431511',
     alt: 'Utkarsh Education Banner 1'
   },
   {
     key: 'banner-2',
-    url: 'https://ik.imagekit.io/qujrbo6v2/profile%20page%201%20(1).jpg',
+    url: 'https://ik.imagekit.io/qujrbo6v2/2.gif?updatedAt=1769658696783',
     alt: 'Utkarsh Education Banner 2'
   },
   {
     key: 'banner-3',
-    url: 'https://ik.imagekit.io/qujrbo6v2/2.gif',
+    url: 'https://ik.imagekit.io/qujrbo6v2/profile%20page%201%20(1).jpg?updatedAt=1767678737054',
     alt: 'Utkarsh Education Banner 3'
   },
 ];
@@ -46,7 +46,7 @@ export default function HeroSlider({ onEnrollClick }: HeroSliderProps) {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
 
   return (
-    <div className="relative bg-white overflow-hidden">
+    <div className="relative bg-white overflow-hidden -mt-12">
       <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]">
         {banners.map((banner, index) => (
           <div
